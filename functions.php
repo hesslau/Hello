@@ -268,6 +268,9 @@ function wpt_save_events_meta( $post_id, $post ) {
 add_action( 'save_post', 'wpt_save_events_meta', 1, 2 );
 
 function isBright($hex) {
+    // replace any hashes
+    $hex = str_replace('#','',$hex);
+
     //break up the color in its RGB components
     $r = hexdec(substr($hex,0,2));
     $g = hexdec(substr($hex,2,2));
