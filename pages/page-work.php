@@ -24,9 +24,13 @@
       <div class="posts">
         <?php $query = new WP_Query( array('post_type' => 'work', 'posts_per_page' => 5 ) );
         while ( $query->have_posts() ) : $query->the_post(); ?>
+          <?php
+          $colorClass = isBright(get_post_meta( get_the_ID(), 'color', true )) ? 'bright' : '';
+          ?>
 
-        <a href="<?php echo get_post_meta( get_the_ID(), 'link', true ); ?>" target="_blank">
-          <div class="work" style="background: <?php echo get_post_meta( get_the_ID(), 'color', true ); ?>">
+
+          <a href="<?php echo get_post_meta( get_the_ID(), 'link', true ); ?>" target="_blank">
+          <div class="work <?php echo $colorClass; ?>" style="background: <?php echo get_post_meta( get_the_ID(), 'color', true ); ?>">
             <div class="overlay"></div>
             <div class="image" style="background:url('<?php echo get_the_post_thumbnail_url(get_the_ID(),'full') ?>') no-repeat;"></div>
             <div class="content">

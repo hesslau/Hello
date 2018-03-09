@@ -266,3 +266,21 @@ function wpt_save_events_meta( $post_id, $post ) {
 	endforeach;
 }
 add_action( 'save_post', 'wpt_save_events_meta', 1, 2 );
+
+function isBright($hex) {
+    //break up the color in its RGB components
+    $r = hexdec(substr($hex,0,2));
+    $g = hexdec(substr($hex,2,2));
+    $b = hexdec(substr($hex,4,2));
+
+    //do simple weighted average
+    //
+    //(This might be overly simplistic as different colors are perceived
+    // differently. That is a green of 128 might be brighter than a red of 128.
+    // But as long as it's just about picking a white or black text color...)
+    if($r + $g + $b > 382){
+        return true;
+    }else{
+        return false;
+    }
+}

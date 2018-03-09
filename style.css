@@ -1781,6 +1781,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	padding:0;
 }
 
+#work .posts .work.bright .content .title,
+#work .posts .work.bright .content .tagline,
+#work .posts .work.bright .content .summary,
+#work .posts .work.bright .content .meta {
+	color:#333;
+}
+
 #work .posts .work .content .meta .field{
 	font-weight: 500;
 }
